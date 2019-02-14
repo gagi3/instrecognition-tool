@@ -25,11 +25,10 @@ public class AudioFile {
         System.out.println(audioFile.drums.toString());
         System.out.println(audioFile.instrument.toString());
         System.out.println(audioFile.genre.toString());
-        audioFile.transform();
-        System.out.println(Arrays.toString(audioFile.data));
-        FileWriter fileWriter = new FileWriter(new File("D:\\College\\Soft Computing\\txt.txt"));
-        fileWriter.write(Arrays.toString(audioFile.data));
-        System.out.println(audioFile.data[0]);
+//        audioFile.transform();
+//        System.out.println(Arrays.toString(audioFile.data));
+
+//        System.out.println(audioFile.data[0]);
     }
 
     public AudioFile(String filename, Instrument instrument, Genre genre, Drums drums, double[] data) {
@@ -40,7 +39,7 @@ public class AudioFile {
         this.data = data;
     }
 
-    public AudioFile(String filename) {
+    public AudioFile(String filename) throws IOException {
         this.filename = filename;
         readClassifiers();
         this.data = transform();
@@ -109,13 +108,30 @@ public class AudioFile {
         }
     }
 
-    private double[] transform() {
+    private double[] transform() throws IOException {
         FastFourierTransform fft = new FastFourierTransform();
         Wave wave = new Wave(this.filename);
         DoubleFFT_1D d = new DoubleFFT_1D(1);
         this.data = wave.getNormalizedAmplitudes();
-        d.complexForward(wave.getNormalizedAmplitudes());
-        return data;
+        double[] complex = this.data;
+        double[] real = this.data;
+        d.complexForward(complex);
+        d.realForwardFull(real);
+        writeToFile(this.data, complex, real);
+        return this.data;
+    }
+
+    private void writeToFile(double[] dataBefore, double[] complexFFT, double[] realFFT) throws IOException {
+        FileWriter fileWriter = new FileWriter(new File("D:\\College\\Soft Computing\\txt.txt"));
+        fileWriter.append("Instrument: ").append(this.instrument.toString()).append("\n");
+        fileWriter.append("Genre: ").append(this.genre.toString()).append("\n");
+        fileWriter.append("Drums: ").append(this.drums.toString()).append("\n");
+        fileWriter.append("Size: ").append(String.valueOf(this.data.length)).append("\n");
+        fileWriter.append("Wave data: ").append(Arrays.toString(dataBefore)).append("\n");
+        fileWriter.append("FFT complex data: ").append(Arrays.toString(complexFFT)).append("\n");
+        fileWriter.append("FFT real data: ").append(Arrays.toString(realFFT)).append("\n");
+        assert dataBefore == complexFFT;
+
     }
 
     public String getFilename() {
