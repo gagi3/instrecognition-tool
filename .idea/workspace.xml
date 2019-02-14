@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9aa05771-3e6d-494d-87a8-7287c1643a7c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/InstRecognitionTool.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/src/io/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/AudioFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Drums.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Instrument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/instrecognition-tool.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstRecognitionTool/InstRecognitionTool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/InstRecognitionTool/InstRecognitionTool.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstRecognitionTool/src/model/AudioFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/AudioFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstRecognitionTool/src/model/Drums.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Drums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstRecognitionTool/src/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InstRecognitionTool/src/model/Instrument.java" beforeDir="false" afterPath="$PROJECT_DIR$/InstRecognitionTool/src/model/Instrument.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InstRecognitionTool/src/model/AudioFile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+            <state relative-caret-position="368">
+              <caret line="31" column="46" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3696#3697#0" expanded="true" />
@@ -83,24 +86,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-138">
               <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InstRecognitionTool/src/io/FileUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#269#270#0" expanded="true" />
-                <element signature="e#591#592#0" expanded="true" />
-                <element signature="e#623#624#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,6 +158,19 @@
             </path>
             <path>
               <item name="instrecognition-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="instrecognition-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="InstRecognitionTool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="instrecognition-tool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="instrecognition-tool" type="462c0819:PsiDirectoryNode" />
+              <item name="InstRecognitionTool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="instrecognition-tool" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -232,7 +230,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550173595496" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550174054092" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../musicg/musicg-1.4.2.0.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -295,7 +293,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -303,7 +301,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32921812" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32921812" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32921812" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -459,8 +457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/InstRecognitionTool/src/model/AudioFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state relative-caret-position="368">
+          <caret line="31" column="46" lean-forward="true" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3696#3697#0" expanded="true" />
