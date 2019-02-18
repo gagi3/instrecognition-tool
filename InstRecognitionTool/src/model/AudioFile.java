@@ -1,8 +1,6 @@
 package model;
 
-import com.musicg.dsp.FastFourierTransform;
 import com.musicg.wave.Wave;
-import com.sun.media.sound.FFT;
 import org.jtransforms.fft.DoubleFFT_1D;
 import pl.edu.icm.jlargearrays.DoubleLargeArray;
 
@@ -22,16 +20,10 @@ public class AudioFile {
 
     public static void main(String[] args) throws IOException {
         AudioFile audioFile = new AudioFile("D:\\College\\Soft Computing\\Data\\IRMAS-TrainingData\\vio\\[vio][cla]2083__1.wav");
-//        audioFile.filename = "D:\\College\\Soft Computing\\Data\\IRMAS-TrainingData\\flu\\155__[flu][nod][cou_fol]0416__3.wav";
-//        audioFile.readClassifiers();
         System.out.println(audioFile.filename);
         System.out.println(audioFile.drums.toString());
         System.out.println(audioFile.instrument.toString());
         System.out.println(audioFile.genre.toString());
-//        audioFile.transform();
-//        System.out.println(Arrays.toString(audioFile.data));
-
-//        System.out.println(audioFile.data[0]);
     }
 
     public AudioFile(String filename, Instrument instrument, Genre genre, Drums drums, double[] data) {
@@ -53,7 +45,7 @@ public class AudioFile {
     public AudioFile() {
     }
 
-    public void readClassifiers() {
+    private void readClassifiers() {
         readInstrument();
         readGenre();
         readDrums();
@@ -113,22 +105,22 @@ public class AudioFile {
         }
     }
 
-    private double[] read() throws IOException {
+    private double[] read() {
         Wave wave = new Wave(this.filename);
         return wave.getNormalizedAmplitudes();
     }
 
     private double[] transform() throws IOException {
         DoubleLargeArray dba = new DoubleLargeArray(this.data);
-        System.out.println(this.data.length);
+//        System.out.println(this.data.length);
         DoubleFFT_1D d = new DoubleFFT_1D(dba.length());
         DoubleLargeArray fft = new DoubleLargeArray(this.data.clone());
-        double[] complex = new double[2 * this.data.length];
-        System.arraycopy(this.data, 0, complex, 0, this.data.length);
-        d.complexForward(complex);
+//        double[] complex = new double[2 * this.data.length];
+//        System.arraycopy(this.data, 0, complex, 0, this.data.length);
+//        d.complexForward(complex);
         d.realForward(fft);
         this.fft = fft.getData();
-        writeToFile(this.data, complex, this.fft);
+//        writeToFile(this.data, complex, this.fft);
         return this.fft;
     }
 
