@@ -2,7 +2,9 @@ package model;
 
 import com.musicg.dsp.FastFourierTransform;
 import com.musicg.wave.Wave;
+import com.sun.media.sound.FFT;
 import org.jtransforms.fft.DoubleFFT_1D;
+import pl.edu.icm.jlargearrays.DoubleLargeArray;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -16,9 +18,10 @@ public class AudioFile {
     private Genre genre;
     private Drums drums;
     private double[] data;
+    private double[] fft;
 
     public static void main(String[] args) throws IOException {
-        AudioFile audioFile = new AudioFile("D:\\College\\Soft Computing\\Data\\IRMAS-TrainingData\\flu\\155__[flu][nod][cou_fol]0416__3.wav");
+        AudioFile audioFile = new AudioFile("D:\\College\\Soft Computing\\Data\\IRMAS-TrainingData\\vio\\[vio][cla]2083__1.wav");
 //        audioFile.filename = "D:\\College\\Soft Computing\\Data\\IRMAS-TrainingData\\flu\\155__[flu][nod][cou_fol]0416__3.wav";
 //        audioFile.readClassifiers();
         System.out.println(audioFile.filename);
@@ -42,7 +45,9 @@ public class AudioFile {
     public AudioFile(String filename) throws IOException {
         this.filename = filename;
         readClassifiers();
-        this.data = transform();
+        this.data = read();
+        this.fft = transform();
+//        inverse();
     }
 
     public AudioFile() {
@@ -108,30 +113,42 @@ public class AudioFile {
         }
     }
 
-    private double[] transform() throws IOException {
-        FastFourierTransform fft = new FastFourierTransform();
+    private double[] read() throws IOException {
         Wave wave = new Wave(this.filename);
-        DoubleFFT_1D d = new DoubleFFT_1D(1);
-        this.data = wave.getNormalizedAmplitudes();
-        double[] complex = this.data;
-        double[] real = this.data;
+        return wave.getNormalizedAmplitudes();
+    }
+
+    private double[] transform() throws IOException {
+        DoubleLargeArray dba = new DoubleLargeArray(this.data);
+        System.out.println(this.data.length);
+        DoubleFFT_1D d = new DoubleFFT_1D(dba.length());
+        DoubleLargeArray fft = new DoubleLargeArray(this.data.clone());
+        double[] complex = new double[2 * this.data.length];
+        System.arraycopy(this.data, 0, complex, 0, this.data.length);
         d.complexForward(complex);
-        d.realForwardFull(real);
-        writeToFile(this.data, complex, real);
-        return this.data;
+        d.realForward(fft);
+        this.fft = fft.getData();
+        writeToFile(this.data, complex, this.fft);
+        return this.fft;
+    }
+
+    private void inverse() {
+        DoubleFFT_1D d = new DoubleFFT_1D(this.fft.length);
+        d.realInverseFull(this.fft, false);
     }
 
     private void writeToFile(double[] dataBefore, double[] complexFFT, double[] realFFT) throws IOException {
         FileWriter fileWriter = new FileWriter(new File("D:\\College\\Soft Computing\\txt.txt"));
-        fileWriter.append("Instrument: ").append(this.instrument.toString()).append("\n");
-        fileWriter.append("Genre: ").append(this.genre.toString()).append("\n");
-        fileWriter.append("Drums: ").append(this.drums.toString()).append("\n");
-        fileWriter.append("Size: ").append(String.valueOf(this.data.length)).append("\n");
+        fileWriter.append("File name: ").append(this.filename).append("\n");
+        if (this.instrument != null) fileWriter.append("Instrument: ").append(this.instrument.toString()).append("\n");
+        if (this.genre != null) fileWriter.append("Genre: ").append(this.genre.toString()).append("\n");
+        if (this.drums != null) fileWriter.append("Drums: ").append(this.drums.toString()).append("\n");
+        fileWriter.append("Wave sample size: ").append(String.valueOf(this.data.length)).append("\n");
         fileWriter.append("Wave data: ").append(Arrays.toString(dataBefore)).append("\n");
+        fileWriter.append("FFT complex sample size: ").append(String.valueOf(complexFFT.length)).append("\n");
         fileWriter.append("FFT complex data: ").append(Arrays.toString(complexFFT)).append("\n");
+        fileWriter.append("FFT real sample size: ").append(String.valueOf(realFFT.length)).append("\n");
         fileWriter.append("FFT real data: ").append(Arrays.toString(realFFT)).append("\n");
-        assert dataBefore == complexFFT;
-
     }
 
     public String getFilename() {
@@ -172,5 +189,13 @@ public class AudioFile {
 
     public void setData(double[] data) {
         this.data = data;
+    }
+
+    public double[] getFft() {
+        return fft;
+    }
+
+    public void setFft(double[] fft) {
+        this.fft = fft;
     }
 }
