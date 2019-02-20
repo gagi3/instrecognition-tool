@@ -4,12 +4,13 @@ An instrument recognition tool
 ### Instructions and prerequisites
 ##### Prerequisites
 
-- Anaconda for Python 3.6
-- Jupyter notebook 5.5.0
-- numpy 1.14.3
-- scikit-learn 0.19.1
-- glob2 0.6
-- librosa 0.6.3
+- `Anaconda` for Python 3.6
+- `Jupyter notebook` 5.5.0
+- `numpy` 1.14.3
+- `scikit-learn` 0.19.1
+- `glob2` 0.6
+- `librosa` 0.6.3
+- `IRMAS dataset` from https://www.upf.edu/web/mtg/irmas
 
 Additionally, it is required that the extracted IRMAS datasets are placed in the following folder:
 
@@ -26,7 +27,7 @@ The folder structure of Data folder should then look like:
  ##### Instructions
  
 1. Clone the project repository.
-2. Open the IRT.ipynb file in a Jupyter Notebook.
-3. From the toolbar, click on Cell, then on Run All.
+2. Open the `IRT.ipynb` file in a Jupyter Notebook.
+3. From the toolbar, click on `Cell`, then on `Run All`.
 4. Enjoy the awesomeness that is this project.
 5. Grade generously.
