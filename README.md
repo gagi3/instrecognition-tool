@@ -1,13 +1,6 @@
 # InstRecognition Tool
 An instrument recognition tool
 
-<<<<<<< HEAD
-## Required libraries
-- [**MusicG**](https://code.google.com/archive/p/musicg/) - reading WAV files
-- [**JTransforms**](https://sites.google.com/site/piotrwendykier/software/jtransforms) - Fast Fourier Transform
-- [**JMathPlot**](https://sites.google.com/site/mulabsltd/products/jmathplot) - data visualization
-- [**JMathIO**](https://sites.google.com/site/mulabsltd/products/jmathio) - JMathPlot dependency
-=======
 ### Instructions and prerequisites
 ##### Prerequisites
 
@@ -38,4 +31,3 @@ The folder structure of Data folder should then look like:
 3. From the toolbar, click on `Cell`, then on `Run All`.
 4. Enjoy the awesomeness that is this project.
 5. Grade generously.
->>>>>>> development
