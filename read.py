@@ -41,7 +41,6 @@ def fext():
             label = 11
 
         data2 = [filename, feature, label]
-        #print(data2)
         data.append(data2)
     
     return data
@@ -60,9 +59,6 @@ def fextonetest():
     txtf = filename[:-3] + 'txt'
     file = open(txtf, "r")
     inst = file.readlines()
-    # print(inst)
-    # inst = inst.split('\t')
-    # print(inst)
     if len(inst) == 2:
         predicted_label = label(inst[0])
         actual_label = label(inst[1])
@@ -119,9 +115,6 @@ def fexttest1():
         txtf = filename[:-3] + 'txt'
         file = open(txtf, "r")
         inst = file.readlines()
-        # print(inst)
-        # inst = inst.split('\t')
-        # print(inst)
         if len(inst) == 2:
             predicted_label = label(inst[0])
             actual_label = label(inst[1])
@@ -152,9 +145,6 @@ def fexttest2():
         txtf = filename[:-3] + 'txt'
         file = open(txtf, "r")
         inst = file.readlines()
-        # print(inst)
-        # inst = inst.split('\t')
-        # print(inst)
         if len(inst) == 2:
             predicted_label = label(inst[0])
             actual_label = label(inst[1])
@@ -185,9 +175,6 @@ def fexttest3():
         txtf = filename[:-3] + 'txt'
         file = open(txtf, "r")
         inst = file.readlines()
-        # print(inst)
-        # inst = inst.split('\t')
-        # print(inst)
         if len(inst) == 2:
             predicted_label = label(inst[0])
             actual_label = label(inst[1])
@@ -218,9 +205,6 @@ def fextcustom():
         txtf = filename[:-3] + 'txt'
         file = open(txtf, "r")
         inst = file.readlines()
-        # print(inst)
-        # inst = inst.split('\t')
-        # print(inst)
         if len(inst) == 2:
             predicted_label = label(inst[0])
             actual_label = label(inst[1])

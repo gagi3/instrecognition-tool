@@ -34,17 +34,6 @@ def predict(features, knn):
     predicted = knn.predict(features)
     return predicted
 
-# def predictlabel(features):
-#     knn = neighbors.KNeighborsClassifier(n_neighbors = 11, metric = 'minkowski')
-#     predicted = knn.predict(features)
-#     return predicted
-
-# def testlabel(features):
-#     # Needs features instead of data.
-#     # filename, features, predicted_labels, actual_labels = unboxtrained(data)
-#     predicted = predictlabel(features)
-#     return predicted
-
 def testone(data, knn):
     filename, features, predicted_labels, actual_labels = unboxsingle(data)
     features = features.reshape(1, -1)
