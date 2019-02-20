@@ -1,6 +1,8 @@
 # InstRecognition Tool
 An instrument recognition tool
 
+- Note: More details on dataset, concept and implementation are available in the Jupyter notebook file `IRT.ipynb`.
+
 ### Instructions and prerequisites
 ##### Prerequisites
 
