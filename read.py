@@ -1,8 +1,7 @@
 import numpy as np
-import sklearn
 import librosa
 import glob
-import classi
+
 
 def fext():
     sample_rate = 44100
@@ -11,16 +10,16 @@ def fext():
     files = glob.glob('D:\College\Soft Computing\Data\IRMAS-TrainingData\*\*.wav')
     np.random.shuffle(files)
     for filename in files:
-        music, sample_rate = librosa.load(filename, sr = sample_rate)
+        music, sample_rate = librosa.load(filename, sr=sample_rate)
 
-        mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-        average = np.mean(mfccs, axis = 1)
+        mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+        average = np.mean(mfccs, axis=1)
         feature = average.reshape(20)
 
         if filename[50:53] == 'cel':
             label = 1
         elif filename[50:53] == 'cla':
-            label = 2   
+            label = 2
         elif filename[50:53] == 'flu':
             label = 3
         elif filename[50:53] == 'gac':
@@ -42,17 +41,18 @@ def fext():
 
         data2 = [filename, feature, label]
         data.append(data2)
-    
+
     return data
+
 
 def fextonetest():
     sample_rate = 44100
-    
+
     filename = 'D:\College\Soft Computing\Data\IRMAS-TestingData-Part1\Part1\(02) dont kill the whale-15.wav'
 
-    music, sample_rate = librosa.load(filename, sr = sample_rate)
-    mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-    average = np.mean(mfccs, axis = 1)
+    music, sample_rate = librosa.load(filename, sr=sample_rate)
+    mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+    average = np.mean(mfccs, axis=1)
     feature = average.reshape(20)
     predicted_label = 0
 
@@ -70,11 +70,12 @@ def fextonetest():
     data2 = [filename, feature, predicted_label, actual_label]
     return data2
 
+
 def label(labelstr):
     if labelstr[:-2] == 'cel':
         return 1
     elif labelstr[:-2] == 'cla':
-        return 2   
+        return 2
     elif labelstr[:-2] == 'flu':
         return 3
     elif labelstr[:-2] == 'gac':
@@ -96,18 +97,19 @@ def label(labelstr):
     else:
         return 0
     return 0
-            
+
+
 def fexttest1():
     sample_rate = 44100
     data = []
-    
+
     files = glob.glob('D:\College\Soft Computing\Data\IRMAS-TestingData-Part1\Part1\*.wav')
     np.random.shuffle(files)
 
     for filename in files:
-        music, sample_rate = librosa.load(filename, sr = sample_rate)
-        mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-        average = np.mean(mfccs, axis = 1)
+        music, sample_rate = librosa.load(filename, sr=sample_rate)
+        mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+        average = np.mean(mfccs, axis=1)
         feature = average.reshape(20)
 
         predicted_label = 0
@@ -121,7 +123,7 @@ def fexttest1():
         else:
             predicted_label = label(inst[0])
             actual_label = 0
-        
+
         data2 = [filename, feature, predicted_label, actual_label]
         data.append(data2)
         file.close()
@@ -131,14 +133,14 @@ def fexttest1():
 def fexttest2():
     sample_rate = 44100
     data = []
-    
+
     files = glob.glob('D:\College\Soft Computing\Data\IRMAS-TestingData-Part2\IRTestingData-Part2\*.wav')
     np.random.shuffle(files)
 
     for filename in files:
-        music, sample_rate = librosa.load(filename, sr = sample_rate)
-        mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-        average = np.mean(mfccs, axis = 1)
+        music, sample_rate = librosa.load(filename, sr=sample_rate)
+        mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+        average = np.mean(mfccs, axis=1)
         feature = average.reshape(20)
         predicted_label = 0
 
@@ -157,18 +159,19 @@ def fexttest2():
         file.close()
 
     return data
+
 
 def fexttest3():
     sample_rate = 44100
     data = []
-    
+
     files = glob.glob('D:\College\Soft Computing\Data\IRMAS-TestingData-Part3\Part3\*.wav')
     np.random.shuffle(files)
 
     for filename in files:
-        music, sample_rate = librosa.load(filename, sr = sample_rate)
-        mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-        average = np.mean(mfccs, axis = 1)
+        music, sample_rate = librosa.load(filename, sr=sample_rate)
+        mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+        average = np.mean(mfccs, axis=1)
         feature = average.reshape(20)
         predicted_label = 0
 
@@ -181,23 +184,24 @@ def fexttest3():
         else:
             predicted_label = label(inst[0])
             actual_label = 0
-        
+
         data2 = [filename, feature, predicted_label, actual_label]
         data.append(data2)
         file.close()
     return data
 
+
 def fextcustom():
     sample_rate = 44100
     data = []
-    
+
     files = glob.glob('D:\College\Soft Computing\Data\DEFENSE\*.wav')
     np.random.shuffle(files)
 
     for filename in files:
-        music, sample_rate = librosa.load(filename, sr = sample_rate)
-        mfccs = librosa.feature.mfcc(y = music, sr = sample_rate)
-        average = np.mean(mfccs, axis = 1)
+        music, sample_rate = librosa.load(filename, sr=sample_rate)
+        mfccs = librosa.feature.mfcc(y=music, sr=sample_rate)
+        average = np.mean(mfccs, axis=1)
         feature = average.reshape(20)
 
         predicted_label = 0
@@ -211,7 +215,7 @@ def fextcustom():
         else:
             predicted_label = label(inst[0])
             actual_label = 0
-        
+
         data2 = [filename, feature, predicted_label, actual_label]
         data.append(data2)
         file.close()
